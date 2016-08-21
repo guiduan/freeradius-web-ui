@@ -84,12 +84,13 @@ function addNewUser() {
 	var fullname = $('#fullname').val();
 	var username = $('#username').val();
 	var email = $('#email').val();
-	var passwordType = $('input[name=passwordType]:checked').val();
+	var userpass = $('#userpass').val();
+	var authpass = $('#authpass').val();
 
-	if (!passwordType || fullname.length == 0 || username.length == 0 || email.length == 0) {
-		$('#loading').removeClass(removeClass).addClass('text-danger').show().html('All fields must be filled.');
+	if (userpass.length == 0 || authpass.length == 0 || fullname.length == 0 || username.length == 0 || email.length == 0) {
+		$('#loading').removeClass(removeClass).addClass('text-danger').show().html('所有项目不能为空');
 	} else {
-		var data = 'fullname=' + fullname + '&username=' + username + '&email=' + email + '&passwordType=' + passwordType;
+		var data = 'fullname=' + fullname + '&username=' + username + '&email=' + email + '&userpass=' + userpass + '&authpass=' + authpass;
 		var addClass = '';
 		var info = '';
 		$.ajax({
@@ -100,42 +101,42 @@ function addNewUser() {
 				   data: data,
 				   success: function(response) {
 					   if ($.trim(response) == 'Empty') {
-						   info = 'All fields must be filled.';
+						   info = '所有项目不能为空';
 						   addClass = 'text-danger';
 					   }
 
 					   if ($.trim(response) == 'InvalidEmail') {
-						   info = 'Invalid email address.';
+						   info = 'Email无效';
 						   addClass = 'text-danger';
 					   }
 
 					   if ($.trim(response) == 'UsernameRegistered') {
-						   info = 'Username already exists, please choose different username.';
+						   info = '用户名已经注册，请选择其他用户名';
 						   addClass = 'text-info';
 					   }
 
 					   if ($.trim(response) == 'EmailRegistered') {
-						   info = 'Email already exists.';
+						   info = 'Email已经注册';
 						   addClass = 'text-info';
 					   }
 
 					   if ($.trim(response) == 'Error') {
-						   info = 'Error while adding the new user, please try again later.';
+						   info = '发生错误，请稍后重试';
 						   addClass = 'text-danger';
 					   }
 
 					   if ($.trim(response) == 'Registered') {
-						   info = 'User added successfully.';
+						   info = '用户添加成功';
 						   addClass = 'text-success';
 					   }
 
 					   if ($.trim(response) == 'MailSent') {
-						   info = 'User added successfully.<br>Password sent to the user on ' + email;
+						   info = '用户添加成功.<br>密码已经发送到用户邮箱： ' + email;
 						   addClass = 'text-success';
 					   }
 
 					   if ($.trim(response) == 'EmailError') {
-						   info = 'Error while sending the email to the user on ' + email;
+						   info = '发送邮件到 ' + email + '时发生错误';
 						   addClass = 'text-info';
 					   }
 
@@ -143,7 +144,8 @@ function addNewUser() {
 					   $('#fullname').val('');
 					   $('#email').val('');
 					   $('#username').val('');
-					   $("#passwordType").prop("checked", false);
+					   $('#userpass').val('');
+					   $('#authpass').val('');
 				   }
 			   });
 	}
