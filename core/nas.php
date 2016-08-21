@@ -9,7 +9,7 @@ require_once 'includes/chkLogin.php';
 	require_once '../includes/css-js.php';
 	require_once './includes/css-js.php';
 	?>
-	<title><?php echo $_SESSION['SITE_NAME'] ?>::Users</title>
+	<title><?php echo $_SESSION['SITE_NAME'] ?>::NAS</title>
 
 	<script type="text/javascript" src="<?php echo $_SESSION['PRODUCT_URL'] ?>core/js/nas.js"></script>
 	<script type="text/javascript" src="<?php echo $_SESSION['PRODUCT_URL'] ?>core/js/confirmation.js"></script>
@@ -26,8 +26,8 @@ require_once 'includes/chkLogin.php';
 <div class="container">
 	<div class="row">
 		<h1>
-			<i class="icon-monitor-2 fg-darker smaller"></i>
-			NAS
+			<i class="icon-monitor-2 fg-blue smaller"></i>
+			NAS列表
 		</h1>
 	</div>
 
@@ -62,13 +62,13 @@ require_once 'includes/chkLogin.php';
 			<ul>
 				<li class="previous" id="previous" style="display: none;">
 					<a style="border-radius: 10px;" class="button dark" href="javascript:void(0);" onclick="javascript:loadPreviousNAS();">
-						<span aria-hidden="true">&larr;</span> Previous
+						<span aria-hidden="true">&larr;</span> 上一页
 					</a>
 				</li>
 
 				<li class="next" id="next">
 					<a style="border-radius: 10px;" class="button dark" href="javascript:void(0);" onclick='javascript:loadNextNAS();'>
-						Next <span aria-hidden="true">&rarr;</span>
+						下一页 <span aria-hidden="true">&rarr;</span>
 					</a>
 				</li>
 			</ul>
