@@ -53,10 +53,6 @@ require_once 'includes/chkLogin.php';
 								<td><span id="userTotalDownloadTraffic"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">总流量</span></td>
-								<td><span id="userTotalTraffic"></span></td>
-							</tr>
-							<tr>
 								<td><span class="text-bold">使用时长</span></td>
 								<td><span id="userTotalOnlineTime"></span></td>
 							</tr>
