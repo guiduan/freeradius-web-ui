@@ -9,29 +9,17 @@ if ( $_SERVER['REQUEST_METHOD'] != 'POST' ) {
 	exit;
 }
 
-if ( empty( $_POST['fullname'] ) || empty( $_POST['username'] ) || empty( $_POST['passwordType'] ) || empty( $_POST['email'] ) ) {
+if ( empty( $_POST['fullname'] ) || empty( $_POST['username'] ) || empty( $_POST['userpass'] ) || empty( $_POST['authpass'] ) || empty( $_POST['email'] ) ) {
 	echo 'Empty';
 	exit;
 } else {
 	$fullname     = ucwords($_POST['fullname']);
 	$username     = strtolower($_POST['username']);
 	$email        = strtolower($_POST['email']);
-	$passwordType = $_POST['passwordType'];
-	require_once 'includes/class.RandomPassword.php';
-
-	$op            = ':==';
-	$Password      = new RandomPassword();
-	$plainPassword = $Password->getPassword();
-
-	if ( $passwordType == 'MD5' ) {
-		$password  = md5( $plainPassword );
-		$attribute = 'MD5-Password';
-	}
-
-	if ( $passwordType == 'SHA1' ) {
-		$password  = sha1( $plainPassword );
-		$attribute = 'SHA-Password';
-	}
+	$userpass     = sha1($_POST['userpass']);
+	$authpass     = $_POST['authpass'];
+	$op           = ':=';
+	$attribute    = 'User-Password';
 }
 
 if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
@@ -47,7 +35,7 @@ try {
 	die( $Exception->getMessage() );
 }
 
-$chkUserName = $link->prepare( 'SELECT * FROM radcheck WHERE username = :username' );
+$chkUserName = $link->prepare( 'SELECT * FROM rmuser WHERE username = :username' );
 $chkUserName->bindParam( ':username', $username );
 $chkUserName->execute();
 if ( $chkUserName->rowCount() == 1 ) {
@@ -55,7 +43,7 @@ if ( $chkUserName->rowCount() == 1 ) {
 	exit;
 }
 
-$chkEmail = $link->prepare( 'SELECT * FROM radcheck WHERE email = :email' );
+$chkEmail = $link->prepare( 'SELECT * FROM rmuser WHERE email = :email' );
 $chkEmail->bindParam( ':email', $email );
 $chkEmail->execute();
 if ( $chkEmail->rowCount() == 1 ) {
@@ -63,18 +51,25 @@ if ( $chkEmail->rowCount() == 1 ) {
 	exit;
 }
 
-$registerUser = $link->prepare( 'INSERT INTO radcheck(username, attribute, op, value, fullname, email)  VALUES(:username, :attribute, :op, :password,:fullname,:email)' );
+$insertradcheck = $link->prepare( 'INSERT INTO radcheck(username, attribute, op, value)  VALUES(:username, :attribute, :op, :authpass)' );
 
-$registerUser->bindParam( ':username', $username );
-$registerUser->bindParam( ':attribute', $attribute );
-$registerUser->bindParam( ':op', $op );
-$registerUser->bindParam( ':password', $password );
-$registerUser->bindParam( ':fullname', $fullname );
-$registerUser->bindParam( ':email', $email );
+$insertradcheck->bindParam( ':username', $username );
+$insertradcheck->bindParam( ':attribute', $attribute );
+$insertradcheck->bindParam( ':op', $op );
+$insertradcheck->bindParam( ':authpass', $authpass );
 
-$registerUser->execute();
+$insertradcheck->execute();
 
-if ( $registerUser->rowCount() != 1 ) {
+$insertrmuser = $link->prepare( 'INSERT INTO rmuser(fullname, email, username, password)  VALUES(:fullname, :email, :username, :userpass)' );
+$insertrmuser->bindParam( ':fullname', $fullname );
+$insertrmuser->bindParam( ':email', $email );
+$insertrmuser->bindParam( ':username', $username );
+$insertrmuser->bindParam( ':userpass', $userpass );
+
+$insertrmuser->execute();
+
+
+if ( $registerUser->rowCount() != 1 || $insertrmuser->rowCount() != 1 ) {
 	echo 'Error';
 	exit;
 }
@@ -91,15 +86,18 @@ require 'includes/mailSettings.php';
 
 
 $Mail->addAddress( $email, $fullname );
-$Mail->Subject = $_SESSION['SITE_NAME'] . ':: Account Created';
+$Mail->Subject = $_SESSION['SITE_NAME'] . ':: 账户创建成功';
 
-$emailHeading = 'Account Created';
-$emailContent = "Hi $fullname,<br/><br/>
+$emailHeading = '账户创建成功';
+$emailContent = "尊敬的 $fullname ,您好!<br/><br/>
 				 Admin has created your account on FreeRADIUS server. To connect to FreeRadius server use the following details.<br/><br/>
-				 Username: $username<br/>
-				 Password: $plainPassword<br/><br/>
-				 For other information you can contact admin at: <a href=\"mailto:$_SESSION[EMAIL]\">$_SESSION[EMAIL]</a><br/><br/>
-				 Thanks
+				 $_SESSION['SITE_NAME']的管理员已经为您创建了$_SESSION['SITE_NAME']账户，以下是详细信息，请妥善保管。<br/><br/>
+				 用户名: $username<br/>
+				 登陆密码: $userpass<br/><br/>
+				 VPN用户名: $username<br/>
+				 VPN认证密码: $authpass<br/><br/>
+				 如需要帮助，请联系我们: <a href=\"mailto:$_SESSION[EMAIL]\">$_SESSION[EMAIL]</a><br/><br/>
+				 谢谢！
 				";
 
 $Mail->Body = "
