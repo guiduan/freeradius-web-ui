@@ -25,7 +25,7 @@ try {
 	die( $Exception->getMessage() );
 }
 
-$chkLogin = $link->prepare( 'SELECT * FROM rmadmin WHERE username=:username AND password=:password' );
+$chkLogin = $link->prepare( 'SELECT * FROM rmuser WHERE username=:username AND password=:password' );
 
 $chkLogin->bindParam( ':username', $username, PDO::PARAM_STR );
 $chkLogin->bindParam( ':password', $password, PDO::PARAM_STR );
@@ -37,31 +37,58 @@ if ( $chkLogin->rowCount() != 1 ) {
 	exit;
 }
 
-$adminInfo = $chkLogin->fetch( PDO::FETCH_ASSOC );
+$userInfo = $chkLogin->fetch( PDO::FETCH_ASSOC );
+if ($userInfo['is_admin']){
+	$adminInfo = $userInfo;
+	require 'includes/class.SessionManagement.php';
+	session_name('admin');
+	$Session = new SessionManagement('admin');
+	$Session->sessionOpen();
 
-require 'includes/class.SessionManagement.php';
-session_name('admin');
-$Session = new SessionManagement('admin');
-$Session->sessionOpen();
+	require_once 'includes/functions.php';
 
-require_once 'includes/functions.php';
+	$_SESSION['USERNAME']    = $adminInfo['username'];
+	$_SESSION['EMAIL']       = $adminInfo['email'];
+	$_SESSION['FULLNAME']    = $adminInfo['fullname'];
+	$_SESSION['SITE_NAME']   = getSetting('site_name');
+	$_SESSION['PRODUCT_URL'] = getSetting('product_url');
+	$_SESSION['ADMIN']       = true;
 
-$_SESSION['USERNAME']    = $adminInfo['username'];
-$_SESSION['EMAIL']       = $adminInfo['email'];
-$_SESSION['FULLNAME']    = $adminInfo['fullname'];
-$_SESSION['SITE_NAME']   = getSetting('site_name');
-$_SESSION['PRODUCT_URL'] = getSetting('product_url');
-$_SESSION['ADMIN']       = true;
+	$_SESSION['MAIL_SEND'] = getSetting('mail_send');
 
-$_SESSION['MAIL_SEND'] = getSetting('mail_send');
+	if ($_SESSION['MAIL_SEND'] == 'enable') {
+		$_SESSION['MAIL_HOSTNAME'] = getSetting('mail_hostname');
+		$_SESSION['MAIL_USERNAME'] = getSetting('mail_username');
+		$_SESSION['MAIL_PASSWORD'] = getSetting('mail_password');
+		$_SESSION['MAIL_PORT'] = (int)getSetting('mail_port');
+		$_SESSION['MAIL_SECURE'] = getSetting('mail_secure');
+	}
 
-if ($_SESSION['MAIL_SEND'] == 'enable') {
-	$_SESSION['MAIL_HOSTNAME'] = getSetting('mail_hostname');
-	$_SESSION['MAIL_USERNAME'] = getSetting('mail_username');
-	$_SESSION['MAIL_PASSWORD'] = getSetting('mail_password');
-	$_SESSION['MAIL_PORT'] = (int)getSetting('mail_port');
-	$_SESSION['MAIL_SECURE'] = getSetting('mail_secure');
+	echo trim('Admin Login');
+}else{
+	require 'includes/class.SessionManagement.php';
+	session_name('user');
+	$Session = new SessionManagement('user');
+	$Session->sessionOpen();
+
+	require_once 'includes/functions.php';
+	$_SESSION['USERNAME']    = $adminInfo['username'];
+	$_SESSION['EMAIL']       = $adminInfo['email'];
+	$_SESSION['FULLNAME']    = $adminInfo['fullname'];
+	$_SESSION['SITE_NAME']   = getSetting('site_name');
+	$_SESSION['PRODUCT_URL'] = getSetting('product_url');
+	$_SESSION['USER']       = true;
+
+	$_SESSION['MAIL_SEND'] = getSetting('mail_send');
+
+	if ($_SESSION['MAIL_SEND'] == 'enable') {
+		$_SESSION['MAIL_HOSTNAME'] = getSetting('mail_hostname');
+		$_SESSION['MAIL_USERNAME'] = getSetting('mail_username');
+		$_SESSION['MAIL_PASSWORD'] = getSetting('mail_password');
+		$_SESSION['MAIL_PORT'] = (int)getSetting('mail_port');
+		$_SESSION['MAIL_SECURE'] = getSetting('mail_secure');
+	}
+
+	echo trim('User Login');
 }
-
-echo trim('Login');
 exit;
