@@ -28,7 +28,7 @@ require_once 'includes/chkLogin.php';
 	<div class="row">
 		<h1>
 			<i class="icon-dashboard fg-blue smaller"></i>
-			控制面板
+			用户面板
 		</h1>
 	</div>
 
@@ -39,22 +39,26 @@ require_once 'includes/chkLogin.php';
 				<div class="panel">
 					<div class="panel-header bg-blue text-clear">
 						<span class="icon-user"></span>
-						<span>用户</span>
+						<span>使用信息</span>
 					</div>
 					<div class="panel-content">
 						<table class="table">
 							<tbody>
 							<tr>
-								<td><span class="text-bold">总用户</span></td>
-								<td><span id="totalUsers"></span></td>
+								<td><span class="text-bold">上传流量</span></td>
+								<td><span id="userTotalUploadTraffic"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">活跃用户</span></td>
-								<td><span id="activeUsers"></span></td>
+								<td><span class="text-bold">下载流量</span></td>
+								<td><span id="userTotalDownloadTraffic"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">禁止用户</span></td>
-								<td><span id="bannedUsers"></span></td>
+								<td><span class="text-bold">总流量</span></td>
+								<td><span id="userTotalTraffic"></span></td>
+							</tr>
+							<tr>
+								<td><span class="text-bold">使用时长</span></td>
+								<td><span id="userTotalOnlineTime"></span></td>
 							</tr>
 							</tbody>
 						</table>
@@ -62,95 +66,6 @@ require_once 'includes/chkLogin.php';
 				</div>
 			</div>
 			<!--User Info End-->
-
-			<!--Server Info Start-->
-			<div class="span6">
-				<div class="panel">
-					<div class="panel-header bg-blue text-clear">
-						<span class="icon-monitor"></span>
-						<span>服务器</span>
-					</div>
-					<div class="panel-content">
-						<table class="table">
-							<tbody>
-							<tr>
-								<td><span class="text-bold">日期</span></td>
-								<td><span id="date"></span></td>
-							</tr>
-							<tr>
-								<td><span class="text-bold">主机名</span></td>
-								<td><span id="hostname"></span></td>
-							</tr>
-							<tr>
-								<td><span class="text-bold">在线时长</span></td>
-								<td><span id="uptime"></span></td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-			<!--Server Info End-->
-		</div>
-
-		<div class="row">
-			<!--Memory Info Start-->
-			<div class="span6">
-				<div class="panel">
-					<div class="panel-header bg-blue text-clear">
-						<span class="icon-meter-medium"></span>
-						<span>内存</span>
-					</div>
-					<div class="panel-content">
-						<table class="table">
-							<tbody>
-							<tr>
-								<td><span class="text-bold">总内存</span></td>
-								<td><span id="totalMem"></span></td>
-							</tr>
-							<tr>
-								<td><span class="text-bold">可用内存</span></td>
-								<td><span id="freeMem"></span></td>
-							</tr>
-							<tr>
-								<td><span class="text-bold">已用内存</span></td>
-								<td><span id="usedMem"></span></td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-			<!--Memory Info End-->
-
-			<!--Disk Info Start-->
-			<div class="span6">
-				<div class="panel">
-					<div class="panel-header bg-blue text-clear">
-						<span class="icon-floppy"></span>
-						<span>存储</span>
-					</div>
-					<div class="panel-content">
-						<table class="table">
-							<tbody>
-							<tr>
-								<td><span class="text-bold">总存储</span></td>
-								<td><span id="totalDsk"></span></td>
-							</tr>
-							<tr>
-								<td><span class="text-bold">可用存储</span></td>
-								<td><span id="freeDsk"></span></td>
-							</tr>
-							<tr>
-								<td><span class="text-bold">已用存储</span></td>
-								<td><span id="usedDsk"></span></td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-			<!--Server Info End-->
 		</div>
 	</div>
 </div>
