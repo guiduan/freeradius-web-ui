@@ -1,5 +1,5 @@
 <?php
-require_once './includes/chkLogin.php';
+require_once 'includes/chkLogin.php';
 ?>
 <!doctype html>
 <html lang="en-US">
