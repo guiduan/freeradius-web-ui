@@ -4,18 +4,10 @@
 
 function dashboard() {
 
-	loadDisplay('totalUsers');
-	loadDisplay('activeUsers');
-	loadDisplay('bannedUsers');
-	loadDisplay('date');
-	loadDisplay('hostname');
-	loadDisplay('uptime');
-	loadDisplay('totalMem');
-	loadDisplay('freeMem');
-	loadDisplay('usedMem');
-	loadDisplay('totalDsk');
-	loadDisplay('freeDsk');
-	loadDisplay('usedDsk');
+	loadDisplay('userTotalUploadTraffic');
+	loadDisplay('userTotalDownloadTraffic');
+	loadDisplay('userTotalTraffic');
+	loadDisplay('userTotalOnlineTime');
 
 
 	$.ajax({
@@ -25,22 +17,12 @@ function dashboard() {
 			   async: true,
 			   data: 'action=true',
 			   success: function(response) {
-				   var users = jQuery.parseJSON(response);
-				   $('#totalUsers').html(users.totalUsers);
-				   $('#activeUsers').html(users.activeUsers);
-				   $('#bannedUsers').html(users.bannedUsers);
+				   var info = jQuery.parseJSON(response);
+				   $('#userTotalUploadTraffic').html(info.userTotalUploadTraffic);
+				   $('#userTotalDownloadTraffic').html(info.userTotalDownloadTraffic);
+				   $('#userTotalTraffic').html(info.userTotalTraffic);
+				   $('#userTotalOnlineTime').html(info.userTotalOnlineTime);
 
-				   $('#date').html(users.date);
-				   $('#hostname').html(users.hostname);
-				   $('#uptime').html(users.uptime);
-
-				   $('#totalMem').html(users.totalMem + ' MB');
-				   $('#freeMem').html(users.freeMem + ' MB');
-				   $('#usedMem').html(users.usedMem + ' MB');
-
-				   $('#totalDsk').html(users.totalDisk + ' GB');
-				   $('#freeDsk').html(users.freeDisk + ' GB');
-				   $('#usedDsk').html(users.usedDisk + ' GB');
 			   }
 		   });
 }
