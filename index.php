@@ -1,11 +1,14 @@
 <?php
 
-session_name( 'admin' );
+session_name();
 session_start();
 if ( isset( $_SESSION['ADMIN'] ) ) {
 	header( 'Location: ./core/' );
 	exit;
-} else {
+} elseif ( isset($_SESSION['USER'] ) ) {
+	header( 'Location: ./user/' );
+	exit;
+} else{
 	session_destroy();
 }
 ?>
