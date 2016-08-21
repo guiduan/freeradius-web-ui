@@ -12,29 +12,29 @@ function changePasswordDialog() {
 				 width: 500,
 				 height: 400,
 				 content: '<fieldset>' +
-				 '<legend>Change Password</legend>' +
+				 '<legend>修改密码</legend>' +
 				 '<span style="font-size: medium; display: none;" id="loading"></span>' +
-				 '<label>Current Password</label>' +
+				 '<label>当前密码</label>' +
 				 '<div class="input-control password">' +
 				 '<input type="password" id="currentPass"> ' +
 				 '<button class="btn-reveal"></button>' +
 				 '</div> ' +
 
-				 '<label>New Password</label>' +
+				 '<label>新密码</label>' +
 				 '<div class="input-control password">' +
 				 '<input type="password" id="newPass"> ' +
 				 '<button class="btn-reveal"></button>' +
 				 '</div> ' +
 
-				 '<label>Confirm Password</label>' +
+				 '<label>确认新密码</label>' +
 				 '<div class="input-control password">' +
 				 '<input type="password" id="confPass"> ' +
 				 '<button class="btn-reveal"></button>' +
 				 '</div> ' +
 
 				 '<div class="place-right" style="margin-bottom: 30px;">' +
-				 '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> ' +
-				 '<button class="button dark" onclick="javascript:changePassword();">Change</button> ' +
+				 '<button class="button" type="button" onclick="$.Dialog.close()">取消</button> ' +
+				 '<button class="button dark" onclick="javascript:changePassword();">修改</button> ' +
 				 '</div>' +
 				 '</fieldset>'
 
@@ -51,28 +51,28 @@ function addNewUserDialog() {
 				 draggable: true,
 				 padding: 20,
 				 content: '<fieldset>' +
-				 '<legend>New User</legend>' +
+				 '<legend>新增用户</legend>' +
 				 '<span style="font-size: medium; display: none;" id="loading"></span>' +
 
-				 '<label>Full Name</label>' +
+				 '<label>用户全称</label>' +
 				 '<div class="input-control text">' +
 				 '<input type="text" id="fullname"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
 				 '</div> ' +
 
-				 '<label>Email</label>' +
+				 '<label>电子邮箱</label>' +
 				 '<div class="input-control email">' +
 				 '<input type="email" id="email"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
 				 '</div> ' +
 
-				 '<label>Username</label>' +
+				 '<label>用户名</label>' +
 				 '<div class="input-control text">' +
 				 '<input type="text" id="username"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
 				 '</div> ' +
 
-				 '<label>Password Type</label>' +
+				 '<label>密码类型</label>' +
 
 				 '<div class="input-control radio margin5">' +
 				 '<label>' +
@@ -91,8 +91,8 @@ function addNewUserDialog() {
 				 '</div>' +
 
 				 '<div class="place-right" style="margin-bottom: 30px;">' +
-				 '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> ' +
-				 '<button class="button dark" onclick="javascript:addNewUser();">Add</button> ' +
+				 '<button class="button" type="button" onclick="$.Dialog.close()">取消</button> ' +
+				 '<button class="button dark" onclick="javascript:addNewUser();">添加</button> ' +
 				 '</div>' +
 				 '</fieldset>'
 			 });
@@ -108,10 +108,10 @@ function addNewNasDialog() {
 				 draggable: true,
 				 padding: 20,
 				 content: '<fieldset>' +
-				 '<legend>New NAS</legend>' +
+				 '<legend>新增NAS</legend>' +
 				 '<span style="font-size: medium; display: none;" id="loading"></span>' +
 
-				 '<label>* Host/IP</label>' +
+				 '<label>* 主机名/IP</label>' +
 				 '<div class="input-control text">' +
 				 '<input type="text" id="nasHost"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
@@ -121,10 +121,10 @@ function addNewNasDialog() {
 
 				 '<div class="row">' +
 				 '<div class="span3">' +
-				 '<label>* Type</label>' +
+				 '<label>* 类型</label>' +
 				 '<div class="input-control select">' +
 				 '<select class="form-control input-sm" id="nasType">' +
-				 '<option value="">-- Select NAS Type --</option>' +
+				 '<option value="">-- 选择 NAS 类型 --</option>' +
 				 '<option value="other">other</option>' +
 				 '<option value="cisco">cisco</option>' +
 				 '<option value="livingston">livingston</option>' +
@@ -142,7 +142,7 @@ function addNewNasDialog() {
 				 '</div>' +
 
 				 '<div class="span2">' +
-				 '<label>*Secret</label>' +
+				 '<label>* 密钥</label>' +
 				 '<div class="input-control text">' +
 				 '<input type="text" id="nasSecret"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
@@ -161,7 +161,7 @@ function addNewNasDialog() {
 				 '</div>' +
 
 				 '<div class="span2">' +
-				 '<label>Port</label>' +
+				 '<label>端口</label>' +
 				 '<div class="input-control number">' +
 				 '<input type="number" id="nasPort"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
@@ -171,7 +171,7 @@ function addNewNasDialog() {
 				 '<div class="row">' +
 
 				 '<div class="span3">' +
-				 '<label>Server</label>' +
+				 '<label>NAS服务器</label>' +
 				 '<div class="input-control text">' +
 				 '<input type="text" id="nasServer"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
@@ -188,15 +188,15 @@ function addNewNasDialog() {
 				 '</div> ' +
 				 '</div>' + /*grid*/
 
-				 '<label>Description</label>' +
+				 '<label>描述</label>' +
 				 '<div class="input-control text">' +
 				 '<input type="text" id="nasDescription"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
 				 '</div> ' +
 
 				 '<div class="place-right" style="margin-bottom: 30px;">' +
-				 '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> ' +
-				 '<button class="button dark" onclick="javascript:addNewNAS();">Add</button> ' +
+				 '<button class="button" type="button" onclick="$.Dialog.close()">取消</button> ' +
+				 '<button class="button dark" onclick="javascript:addNewNAS();">添加</button> ' +
 				 '</div>' +
 				 '</fieldset>'
 			 });
@@ -214,7 +214,7 @@ function updateNASDialog(nasId) {
 					   if ($.trim(response) != 'ErrorNASCount') {
 						   var info = jQuery.parseJSON(response);
 						   var content = '<fieldset>' +
-							   '<legend>Update Info</legend>' +
+							   '<legend>更新信息</legend>' +
 							   '<span style="font-size: medium; display: none;" id="loading"></span>' +
 							   '<input type="hidden" id="nasId" readonly value="'+info.id+'"> ' +
 
@@ -222,11 +222,11 @@ function updateNASDialog(nasId) {
 
 							   '<div class="row">' +
 							   '<div class="span3">' +
-							   '<label>* Type</label>' +
+							   '<label>* 类型</label>' +
 							   '<div class="input-control text">' +
 							   '<input list="nasList" id="nasType" value="'+info.type+'">' +
 							   '<datalist id="nasList">' +
-							   '<option value="">-- Select NAS Type --</option>' +
+							   '<option value="">-- 选择 NAS 类型 --</option>' +
 							   '<option value="other">other</option>' +
 							   '<option value="cisco">cisco</option>' +
 							   '<option value="livingston">livingston</option>' +
@@ -244,7 +244,7 @@ function updateNASDialog(nasId) {
 							   '</div>' +
 
 							   '<div class="span2">' +
-							   '<label>*Secret</label>' +
+							   '<label>*密钥</label>' +
 							   '<div class="input-control text">' +
 							   '<input type="text" id="nasSecret" value="'+info.secret+'"> ' +
 							   '<button tabindex="-1" class="btn-clear" type="button"></button>' +
@@ -263,7 +263,7 @@ function updateNASDialog(nasId) {
 							   '</div>' +
 
 							   '<div class="span2">' +
-							   '<label>Port</label>' +
+							   '<label>端口</label>' +
 							   '<div class="input-control number">' +
 							   '<input type="number" id="nasPort" value="'+info.ports+'"> ' +
 							   '<button tabindex="-1" class="btn-clear" type="button"></button>' +
@@ -290,7 +290,7 @@ function updateNASDialog(nasId) {
 							   '</div> ' +
 							   '</div>' + /*grid*/
 
-							   '<label>Description</label>' +
+							   '<label>描述</label>' +
 							   '<div class="input-control text">' +
 							   '<input type="text" id="nasDescription" value="'+info.description+'"> ' +
 							   '<button tabindex="-1" class="btn-clear" type="button"></button>' +
@@ -305,7 +305,7 @@ function updateNASDialog(nasId) {
 
 						   $.Dialog({
 										overlay: true,
-										title: '<span class="text-bold">NAS IP/Host: '+info.nasname+'</span>' ,
+										title: '<span class="text-bold">NAS IP/主机: '+info.nasname+'</span>' ,
 										shadow: true,
 										width: 500,
 										flat: true,
