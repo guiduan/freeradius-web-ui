@@ -59,14 +59,14 @@ if ( isset( $_SESSION['ADMIN'] ) ) {
 			<label for="usr">用户名</label>
 
 			<div data-role="input-control" class="input-control text">
-				<input type="text" placeholder="Enter username" id="usr">
+				<input type="text" placeholder="输入用户名" id="usr">
 				<button tabindex="-1" class="btn-clear" type="button"></button>
 			</div>
 
 			<label for="pwd">密码</label>
 
 			<div data-role="input-control" class="input-control password">
-				<input type="password" placeholder="Enter password" id="pwd">
+				<input type="password" placeholder="输入密码" id="pwd">
 				<button tabindex="-1" class="btn-reveal" type="button"></button>
 			</div>
 			<button class="button dark place-right" onclick="javascript:chkLogin();">
