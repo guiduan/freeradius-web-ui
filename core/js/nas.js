@@ -130,6 +130,9 @@ function viewNASInfo(nasId) {
 
 							   '<tr></tr><td><span style="font-weight: bold;">端口</span></td>' +
 							   '<td>' + info.ports + '</td></tr>' +
+							   
+							   '<tr></tr><td><span style="font-weight: bold;">密钥</span></td>' +
+							   '<td>' + info.secret + '</td></tr>' +
 
 							   '<tr></tr><td><span style="font-weight: bold;">服务器</span></td>' +
 							   '<td>' + info.server + '</td></tr>' +
