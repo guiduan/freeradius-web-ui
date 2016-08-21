@@ -71,24 +71,18 @@ function addNewUserDialog() {
 				 '<input type="text" id="username"> ' +
 				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
 				 '</div> ' +
-
-				 '<label>密码类型</label>' +
-
-				 '<div class="input-control radio margin5">' +
-				 '<label>' +
-				 '<input type="radio" class="" name="passwordType" value="MD5"/>' +
-				 '<span class="check"></span>' +
-				 'MD5' +
-				 '</label>' +
-				 '</div>' +
-
-				 '<div class="input-control radio margin5">' +
-				 '<label>' +
-				 '<input type="radio" class="" name="passwordType" value="SHA1"/>' +
-				 '<span class="check"></span>' +
-				 'SHA1' +
-				 '</label>' +
-				 '</div>' +
+				 
+				 '<label>用户密码</label>' +
+				 '<div class="input-control text">' +
+				 '<input type="password" id="userpass"> ' +
+				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
+				 '</div> ' +
+				 
+				 '<label>认证密码</label>' +
+				 '<div class="input-control text">' +
+				 '<input type="password" id="authpass"> ' +
+				 '<button tabindex="-1" class="btn-clear" type="button"></button>' +
+				 '</div> ' +
 
 				 '<div class="place-right" style="margin-bottom: 30px;">' +
 				 '<button class="button" type="button" onclick="$.Dialog.close()">取消</button> ' +
