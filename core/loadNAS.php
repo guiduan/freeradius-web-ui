@@ -61,15 +61,15 @@ if ( $loadNAS->rowCount() < 1 ) {
 			<td><?php echo $nasInfo->server; ?></td>
 
 			<td id="action-<?php echo $nasInfo->id ?>">
-				<a id="info<?php echo $nasInfo->id; ?>" href="javascript:void(0);" onclick="javascript:viewNASInfo(<?php echo $nasInfo->id; ?>);" data-hint="View Full Information" class="text-info">
+				<a id="info<?php echo $nasInfo->id; ?>" href="javascript:void(0);" onclick="javascript:viewNASInfo(<?php echo $nasInfo->id; ?>);" data-hint="查看详情" class="text-info">
 					<i class="icon-info-2"></i>
 				</a>
 				&nbsp;&nbsp;
-				<a id="edit<?php echo $nasInfo->id; ?>" href="javascript:void(0);" onclick="javascript:updateNASDialog(<?php echo $nasInfo->id; ?>);" data-hint="Edit Information" class="text-primary">
+				<a id="edit<?php echo $nasInfo->id; ?>" href="javascript:void(0);" onclick="javascript:updateNASDialog(<?php echo $nasInfo->id; ?>);" data-hint="编辑信息" class="text-primary">
 					<i class="icon-pencil"></i>
 				</a>
 				&nbsp;&nbsp;
-				<a id="delete<?php echo $nasInfo->id; ?>" href="javascript:void(0);" onclick="javascript:confirmNASDelete(<?php echo $nasInfo->id; ?>,'<?php echo $nasInfo->nasname; ?>');" class="text-warning" id="delete<?php echo $userInfo->id; ?>" data-hint="Delete NAS">
+				<a id="delete<?php echo $nasInfo->id; ?>" href="javascript:void(0);" onclick="javascript:confirmNASDelete(<?php echo $nasInfo->id; ?>,'<?php echo $nasInfo->nasname; ?>');" class="text-warning" id="delete<?php echo $userInfo->id; ?>" data-hint="删除NAS">
 					<i class="icon-remove"></i>
 				</a>
 			</td>
