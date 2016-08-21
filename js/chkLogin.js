@@ -11,7 +11,7 @@ function chkLogin() {
 
 
 	if (usr.length == 0 || pwd.length == 0) {
-		$('#loading').addClass('text-danger').html('Username and password must be filled.');
+		$('#loading').addClass('text-danger').html('用户名或密码不能为空');
 	} else {
 		var data = 'usr='+usr+'&pwd='+pwd;
 		var info  ='';
@@ -24,12 +24,12 @@ function chkLogin() {
 				   data: data,
 				   success: function(response) {
 					   if ($.trim(response) == 'Empty') {
-						   info = 'Username and password must be filled.';
+						   info = '用户名和密码不能为空';
 						   addClass = 'text-danger';
 					   }
 
 					   if ($.trim(response) == 'Invalid') {
-						   info = 'Invalid username or password';
+						   info = '用户名或者密码不正确';
 						   addClass = 'text-danger';
 					   }
 
