@@ -18,7 +18,7 @@ if ( empty( $_POST['fullname'] ) || empty( $_POST['username'] ) || empty( $_POST
 	$email        = strtolower($_POST['email']);
 	$userpass     = sha1($_POST['userpass']);
 	$authpass     = $_POST['authpass'];
-	$op           = ':=';
+	$op           = ':==';
 	$attribute    = 'User-Password';
 }
 
