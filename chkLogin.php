@@ -72,9 +72,9 @@ if ($userInfo['is_admin']){
 	$Session->sessionOpen();
 
 	require_once 'includes/functions.php';
-	$_SESSION['USERNAME']    = $adminInfo['username'];
-	$_SESSION['EMAIL']       = $adminInfo['email'];
-	$_SESSION['FULLNAME']    = $adminInfo['fullname'];
+	$_SESSION['USERNAME']    = $userInfo['username'];
+	$_SESSION['EMAIL']       = $userInfo['email'];
+	$_SESSION['FULLNAME']    = $userInfo['fullname'];
 	$_SESSION['SITE_NAME']   = getSetting('site_name');
 	$_SESSION['PRODUCT_URL'] = getSetting('product_url');
 	$_SESSION['USER']       = true;
