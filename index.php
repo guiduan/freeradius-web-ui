@@ -37,8 +37,8 @@ if ( isset( $_SESSION['ADMIN'] ) ) {
 </head>
 <body>
 
-<header class="bg-dark" style="margin-bottom: 8%;">
-	<div class="navigation-bar dark">
+<header class="bg-blue" style="margin-bottom: 8%;">
+	<div class="navigation-bar blue">
 		<div class="navigation-bar-content container">
 			<a href="javascript:void(0);" class="element">
 				<span class="icon-grid-view"></span>
