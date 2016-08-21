@@ -18,7 +18,6 @@ try {
 require_once 'includes/functions.php';
 $userTotalUploadTraffic = userTotalUploadTraffic($_SESSION['USERNAME']);
 $userTotalDownloadTraffic = userTotalDownloadTraffic($_SESSION['USERNAME']);
-$userTotalTraffic = $userTotalUploadTraffic + $userTotalDownloadTraffic;
 $userTotalOnlineTime = userTotalOnlineTime($_SESSION['USERNAME']);
 
 
@@ -26,7 +25,6 @@ $userTotalOnlineTime = userTotalOnlineTime($_SESSION['USERNAME']);
 $info = array(
 	'userTotalUploadTraffic'=>$userTotalUploadTraffic,
 	'userTotalDownloadTraffic'=>$userTotalDownloadTraffic,
-	'userTotalTraffic'=>$userTotalTraffic,
 	'userTotalOnlineTime'=>$userTotalOnlineTime,
 );
 print json_encode($info);
