@@ -27,8 +27,8 @@ require_once 'includes/chkLogin.php';
 <div class="container">
 	<div class="row">
 		<h1>
-			<i class="icon-dashboard fg-darker smaller"></i>
-			Dashboard
+			<i class="icon-dashboard fg-blue smaller"></i>
+			控制面板
 		</h1>
 	</div>
 
@@ -37,7 +37,7 @@ require_once 'includes/chkLogin.php';
 			<!--User Info Start-->
 			<div class="span6">
 				<div class="panel">
-					<div class="panel-header bg-dark text-clear">
+					<div class="panel-header bg-blue text-clear">
 						<span class="icon-user"></span>
 						<span>用户</span>
 					</div>
@@ -66,7 +66,7 @@ require_once 'includes/chkLogin.php';
 			<!--Server Info Start-->
 			<div class="span6">
 				<div class="panel">
-					<div class="panel-header bg-dark text-clear">
+					<div class="panel-header bg-blue text-clear">
 						<span class="icon-monitor"></span>
 						<span>服务器</span>
 					</div>
@@ -97,7 +97,7 @@ require_once 'includes/chkLogin.php';
 			<!--Memory Info Start-->
 			<div class="span6">
 				<div class="panel">
-					<div class="panel-header bg-dark text-clear">
+					<div class="panel-header bg-blue text-clear">
 						<span class="icon-meter-medium"></span>
 						<span>内存</span>
 					</div>
@@ -126,7 +126,7 @@ require_once 'includes/chkLogin.php';
 			<!--Disk Info Start-->
 			<div class="span6">
 				<div class="panel">
-					<div class="panel-header bg-dark text-clear">
+					<div class="panel-header bg-blue text-clear">
 						<span class="icon-floppy"></span>
 						<span>存储</span>
 					</div>
