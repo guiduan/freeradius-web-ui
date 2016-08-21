@@ -41,12 +41,12 @@ if ( $loadNAS->rowCount() < 1 ) {
 <table class="table bordered hovered">
 	<thead>
 	<tr>
-		<td class="text-bold">IP/Host</td>
+		<td class="text-bold">IP地址/主机</td>
 		<td class="text-bold">Short Name</td>
-		<td class="text-bold">Type</td>
-		<td class="text-bold">Port</td>
-		<td class="text-bold">Server</td>
-		<td class="text-bold">Actions</td>
+		<td class="text-bold">类型</td>
+		<td class="text-bold">端口</td>
+		<td class="text-bold">服务器</td>
+		<td class="text-bold">操作</td>
 	</tr>
 	</thead>
 	<tbody>
