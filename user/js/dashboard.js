@@ -6,7 +6,6 @@ function dashboard() {
 
 	loadDisplay('userTotalUploadTraffic');
 	loadDisplay('userTotalDownloadTraffic');
-	loadDisplay('userTotalTraffic');
 	loadDisplay('userTotalOnlineTime');
 
 
@@ -20,7 +19,6 @@ function dashboard() {
 				   var info = jQuery.parseJSON(response);
 				   $('#userTotalUploadTraffic').html(info.userTotalUploadTraffic);
 				   $('#userTotalDownloadTraffic').html(info.userTotalDownloadTraffic);
-				   $('#userTotalTraffic').html(info.userTotalTraffic);
 				   $('#userTotalOnlineTime').html(info.userTotalOnlineTime);
 
 			   }
