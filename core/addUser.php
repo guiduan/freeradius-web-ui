@@ -90,10 +90,9 @@ $Mail->Subject = $_SESSION['SITE_NAME'] . ':: 账户创建成功';
 
 $emailHeading = '账户创建成功';
 $emailContent = "尊敬的 $fullname ,您好!<br/><br/>
-				 Admin has created your account on FreeRADIUS server. To connect to FreeRadius server use the following details.<br/><br/>
 				 $_SESSION[SITE_NAME]的管理员已经为您创建了$_SESSION[SITE_NAME]账户，以下是详细信息，请妥善保管。<br/><br/>
 				 用户名: $username<br/>
-				 登陆密码: $userpass<br/><br/>
+				 登陆密码: $_POST[userpass]<br/><br/>
 				 VPN用户名: $username<br/>
 				 VPN认证密码: $authpass<br/><br/>
 				 如需要帮助，请联系我们: <a href=\"mailto:$_SESSION[EMAIL]\">$_SESSION[EMAIL]</a><br/><br/>
