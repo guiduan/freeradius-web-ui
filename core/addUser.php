@@ -69,7 +69,7 @@ $insertrmuser->bindParam( ':userpass', $userpass );
 $insertrmuser->execute();
 
 
-if ( $registerUser->rowCount() != 1 || $insertrmuser->rowCount() != 1 ) {
+if ( $insertradcheck->rowCount() != 1 || $insertrmuser->rowCount() != 1 ) {
 	echo 'Error';
 	exit;
 }
