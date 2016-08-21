@@ -125,19 +125,19 @@ function viewNASInfo(nasId) {
 
 							   '</tr><tr>' +
 
-							   '<td><span style="font-weight: bold;">Type</span></td>' +
+							   '<td><span style="font-weight: bold;">类型</span></td>' +
 							   '<td>' + info.type + '</td></tr>' +
 
-							   '<tr></tr><td><span style="font-weight: bold;">Port</span></td>' +
+							   '<tr></tr><td><span style="font-weight: bold;">端口</span></td>' +
 							   '<td>' + info.ports + '</td></tr>' +
 
-							   '<tr></tr><td><span style="font-weight: bold;">Server</span></td>' +
+							   '<tr></tr><td><span style="font-weight: bold;">服务器</span></td>' +
 							   '<td>' + info.server + '</td></tr>' +
 
 							   '<tr></tr><td><span style="font-weight: bold;">Community</span></td>' +
 							   '<td>' + info.community + '</td></tr>' +
 
-							   '<tr></tr><td><span style="font-weight: bold;">Description</span></td>' +
+							   '<tr></tr><td><span style="font-weight: bold;">描述</span></td>' +
 							   '<td>' + info.description + '</td></tr>' +
 							   '</table>' +
 							   '</div>' +
@@ -145,7 +145,7 @@ function viewNASInfo(nasId) {
 
 						   $.Dialog({
 										overlay: true,
-										title: '<span class="text-bold">NAS IP/Host: ' + info.nasname + '</span>',
+										title: '<span class="text-bold">NAS IP或主机地址: ' + info.nasname + '</span>',
 										shadow: true,
 										width: 500,
 										flat: true,
