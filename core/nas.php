@@ -77,5 +77,8 @@ require_once 'includes/chkLogin.php';
 	}
 	?>
 </div>
+<?php
+require '../includes/footer.php';
+?>
 </body>
 </html>
