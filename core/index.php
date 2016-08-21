@@ -9,7 +9,7 @@ require_once 'includes/chkLogin.php';
 	require_once '../includes/css-js.php';
 	require_once './includes/css-js.php';
 	?>
-	<title><?php echo $_SESSION['SITE_NAME'] ?>::Dashboard</title>
+	<title><?php echo $_SESSION['SITE_NAME'] ?>::控制面板</title>
 
 	<script type="text/javascript" src="<?php echo $_SESSION['PRODUCT_URL'] ?>core/js/dashboard.js"></script>
 
@@ -39,21 +39,21 @@ require_once 'includes/chkLogin.php';
 				<div class="panel">
 					<div class="panel-header bg-dark text-clear">
 						<span class="icon-user"></span>
-						<span>User</span>
+						<span>用户</span>
 					</div>
 					<div class="panel-content">
 						<table class="table">
 							<tbody>
 							<tr>
-								<td><span class="text-bold">Total Users</span></td>
+								<td><span class="text-bold">总用户</span></td>
 								<td><span id="totalUsers"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">Active Users</span></td>
+								<td><span class="text-bold">活跃用户</span></td>
 								<td><span id="activeUsers"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">Banned Users</span></td>
+								<td><span class="text-bold">禁止用户</span></td>
 								<td><span id="bannedUsers"></span></td>
 							</tr>
 							</tbody>
@@ -68,21 +68,21 @@ require_once 'includes/chkLogin.php';
 				<div class="panel">
 					<div class="panel-header bg-dark text-clear">
 						<span class="icon-monitor"></span>
-						<span>Server</span>
+						<span>服务器</span>
 					</div>
 					<div class="panel-content">
 						<table class="table">
 							<tbody>
 							<tr>
-								<td><span class="text-bold">Date</span></td>
+								<td><span class="text-bold">日期</span></td>
 								<td><span id="date"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">Hostname</span></td>
+								<td><span class="text-bold">主机名</span></td>
 								<td><span id="hostname"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">Up Time</span></td>
+								<td><span class="text-bold">在线时长</span></td>
 								<td><span id="uptime"></span></td>
 							</tr>
 							</tbody>
@@ -99,21 +99,21 @@ require_once 'includes/chkLogin.php';
 				<div class="panel">
 					<div class="panel-header bg-dark text-clear">
 						<span class="icon-meter-medium"></span>
-						<span>Memory</span>
+						<span>内存</span>
 					</div>
 					<div class="panel-content">
 						<table class="table">
 							<tbody>
 							<tr>
-								<td><span class="text-bold">Total Memory</span></td>
+								<td><span class="text-bold">总内存</span></td>
 								<td><span id="totalMem"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">Free Memory</span></td>
+								<td><span class="text-bold">可用内存</span></td>
 								<td><span id="freeMem"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">Used Memory</span></td>
+								<td><span class="text-bold">已用内存</span></td>
 								<td><span id="usedMem"></span></td>
 							</tr>
 							</tbody>
@@ -128,21 +128,21 @@ require_once 'includes/chkLogin.php';
 				<div class="panel">
 					<div class="panel-header bg-dark text-clear">
 						<span class="icon-floppy"></span>
-						<span>Storage</span>
+						<span>存储</span>
 					</div>
 					<div class="panel-content">
 						<table class="table">
 							<tbody>
 							<tr>
-								<td><span class="text-bold">Total Disk</span></td>
+								<td><span class="text-bold">总存储</span></td>
 								<td><span id="totalDsk"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">Free Disk</span></td>
+								<td><span class="text-bold">可用存储</span></td>
 								<td><span id="freeDsk"></span></td>
 							</tr>
 							<tr>
-								<td><span class="text-bold">Used Disk</span></td>
+								<td><span class="text-bold">已用存储</span></td>
 								<td><span id="usedDsk"></span></td>
 							</tr>
 							</tbody>
