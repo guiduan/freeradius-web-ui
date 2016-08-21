@@ -59,3 +59,12 @@ function userTotalOnlineTime($username='') {
 	return $time;
 }
 
+function userAuthPass(){
+	global $link;
+	$sql = "SELECT value FROM radcheck WHERE username="."$username"." AND attribute='User-Password'";
+	$userauthpass = $link->prepare($sql);
+	$userauthpass->execute();
+	$userauthpass = $userauthpass->fetch( PDO::FETCH_OBJ );
+	$userauthpass = $userauthpass->value;
+	return $userauthpass;
+}
