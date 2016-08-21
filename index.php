@@ -52,25 +52,25 @@ if ( isset( $_SESSION['ADMIN'] ) ) {
 <div style="margin-left: auto; margin-right: auto; width: 45%;">
 	<div class="example">
 		<fieldset>
-			<legend>Login</legend>
+			<legend>登陆</legend>
 
 			<legend style="font-size: medium; display: none;" id="loading"></legend>
 
-			<label for="usr">Username</label>
+			<label for="usr">用户名</label>
 
 			<div data-role="input-control" class="input-control text">
 				<input type="text" placeholder="Enter username" id="usr">
 				<button tabindex="-1" class="btn-clear" type="button"></button>
 			</div>
 
-			<label for="pwd">Password</label>
+			<label for="pwd">密码</label>
 
 			<div data-role="input-control" class="input-control password">
 				<input type="password" placeholder="Enter password" id="pwd">
 				<button tabindex="-1" class="btn-reveal" type="button"></button>
 			</div>
 			<button class="button dark place-right" onclick="javascript:chkLogin();">
-				<span class="bold">Login</span>
+				<span class="bold">登陆</span>
 				<span class="icon-enter"></span>
 			</button>
 		</fieldset>
