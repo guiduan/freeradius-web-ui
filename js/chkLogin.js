@@ -33,11 +33,15 @@ function chkLogin() {
 						   addClass = 'text-danger';
 					   }
 
-					   if ($.trim(response) == 'Login') {
+					   if ($.trim(response) == 'Admin Login') {
 						   redirect('./core/');
 					   }
+					   
+					   if ($.trim(response) == 'User Login') {
+						   redirect('./user/');
+					   }
 
-					   if ($.trim(response) != 'Login') {
+					   if ($.trim(response) != 'Admin Login' || $.trim(response) != 'User Login') {
 						   $('#loading').addClass(addClass).html(info);
 					   }
 
